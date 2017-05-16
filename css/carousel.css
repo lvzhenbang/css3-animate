@@ -1,0 +1,319 @@
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+.carousel,
+.carousel-inner {
+    position: relative
+}
+
+.carousel-inner {
+    width: 100%;
+    overflow: hidden
+}
+
+.carousel-inner>.item {
+    position: relative;
+    display: none;
+    -webkit-transition: left .6s ease-in-out;
+    transition: left .6s ease-in-out
+}
+
+.carousel-inner>.item>a>img,
+.carousel-inner>.item>img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1
+}
+
+@media (-webkit-transform-3d),
+(transform-3d) {
+    .carousel-inner>.item {
+        -webkit-transition: -webkit-transform .6s ease-in-out;
+        transition: transform .6s ease-in-out;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000px;
+        perspective: 1000px
+    }
+    .carousel-inner>.item.active.right,
+    .carousel-inner>.item.next {
+        left: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    .carousel-inner>.item.active.left,
+    .carousel-inner>.item.prev {
+        left: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    .carousel-inner>.item.active,
+    .carousel-inner>.item.next.left,
+    .carousel-inner>.item.prev.right {
+        left: 0;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+.carousel-inner>.active,
+.carousel-inner>.next,
+.carousel-inner>.prev {
+    display: block
+}
+
+.carousel-inner>.active {
+    left: 0
+}
+
+.carousel-inner>.next,
+.carousel-inner>.prev {
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.carousel-inner>.next {
+    left: 100%
+}
+
+.carousel-inner>.prev {
+    left: -100%
+}
+
+.carousel-inner>.next.left,
+.carousel-inner>.prev.right {
+    left: 0
+}
+
+.carousel-inner>.active.left {
+    left: -100%
+}
+
+.carousel-inner>.active.right {
+    left: 100%
+}
+
+.carousel-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 15%;
+
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    background-color: transparent;
+
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+.carousel-control.left {
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5), rgba(0, 0, 0, .0001));
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001));
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#80000000", endColorstr="#00000000", GradientType=1);
+}
+
+.carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001), rgba(0, 0, 0, .5));
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5));
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#00000000", endColorstr="#80000000", GradientType=1);
+}
+
+.carousel-control:focus,
+.carousel-control:hover {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+
+    opacity: .9;
+    filter: alpha(opacity=90)
+}
+
+
+@media screen and (min-width:768px) {
+    .carousel-control .icon-next,
+    .carousel-control .icon-prev {
+        width: 30px;
+        height: 30px;
+        margin-top: -10px;
+        font-size: 30px;
+    }
+    .carousel-control .icon-prev {
+        margin-left: -10px;
+    }
+    .carousel-control .icon-next {
+        margin-right: -10px;
+    }
+}
+
+
+.carousel-control.left {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    top: 40%;
+
+    width: 40px;
+    height: 50px;
+
+    background-color: rgba(0, 0, 0, .4);
+    background-image: none;
+}
+
+.carousel-control.right {
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.ic-next:before,
+.ic-previous:before {
+    text-shadow: none
+}
+
+/* cusotom */
+.row{
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.slide {
+    z-index: 1000;
+    overflow: hidden;
+    border-radius: 0 0 6px 6px;
+}
+
+.slide img {
+    width: 100%;
+    background-color: hsla(0, 0%, 71%, .2)
+}
+
+.banner {
+    display: inline-block;
+    width: 33.333%
+}
+
+.banner:first-child {
+    float: left;
+
+    width: 66.666%;
+
+    -webkit-transform: translateZ(0)!important;
+    transform: translateZ(0)!important;
+}
+
+.banner a:before {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    content: "";
+
+    -webkit-transition: .1s ease-in;
+    -moz-transition: .1s ease-in;
+    -ms-transition: .1s ease-in;
+    -o-transition: .1s ease-in;
+    transition: .1s ease-in;
+}
+
+.banner:hover a:before {
+    background-color: rgba(0, 0, 0, .08)
+}
+
+.carousel-inner .item.active .banner,
+.carousel-inner .item.active.left,
+.carousel-inner .item.active.right,
+.carousel-inner .item.next,
+.carousel-inner .item.next.left .banner,
+.carousel-inner .item.prev,
+.carousel-inner .item.prev.right .banner {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.carousel-inner .item.active .banner:first-child,
+.carousel-inner .item.next.left .banner:first-child,
+.carousel-inner .item.prev.right .banner:first-child {
+    opacity: 1
+}
+
+.carousel-inner .item.active.left .banner,
+.carousel-inner .item.prev .banner {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+}
+
+.carousel-inner .item.active.left .banner:first-child,
+.carousel-inner .item.prev .banner:first-child {
+    opacity: 0
+}
+
+.carousel-inner .item.active.right .banner,
+.carousel-inner .item.next .banner {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}
+
+.carousel-inner .item.active.right .banner:first-child,
+.carousel-inner .item.next .banner:first-child {
+    opacity: 0
+}
+
+.carousel-inner .item .banner {
+    -webkit-transition: .6s cubic-bezier(.6, 0, .2, 1);
+    transition: .6s cubic-bezier(.6, 0, .2, 1);
+}
+
+.carousel-control {    
+    opacity: 0;
+
+    -webkit-transition: .1s ease-in;
+    -moz-transition: .1s ease-in;
+    -ms-transition: .1s ease-in;
+    -o-transition: .1s ease-in;
+    transition: .1s ease-in;
+}
+
+.carousel-control i {
+    position: absolute;
+    top: 50%;
+    margin-top: -14px
+}
+
+.carousel-control .ic-previous {
+    left: 10px
+}
+
+.carousel-control .ic-next {
+    right: 10px
+}
+
+.slide:hover .carousel-control {
+    opacity: 1;
+
+    -webkit-transition: .1s ease-in;
+    -moz-transition: .1s ease-in;
+    -ms-transition: .1s ease-in;
+    -o-transition: .1s ease-in;
+    transition: .1s ease-in;
+}
