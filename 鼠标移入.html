@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入</title>
+    <style>
+    .mouse-in {
+        position: relative;
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        margin: 60px;
+        border-radius: 10%;
+        perspective: 500px;
+        transform-origin: 0 0;
+        transition: background-color 0.3s;
+    }
+    
+    .mouse-in img {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.3s;
+    }
+    
+    .mouse-in h2,
+    .mouse-in p {
+        position: absolute;
+        padding: 0 16px;
+        color: #fff;
+        opacity: 0;
+        transform: translate3d(-160px, 0, -160px);
+    }
+    
+    .mouse-in h2 {
+        bottom: 50%;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 20px;
+        transition: transform 0.3s cubic-bezier(0, 2.3, 0.8, 1), opacity 0.3s;
+    }
+    
+    .mouse-in p {
+        top: 50%;
+        font-size: 14px;
+        transition: transform 0.3s 0.1s cubic-bezier(0, 2.3, 0.8, 1), opacity 0.3s 0.1s;
+    }
+    
+    .mouse-in:hover {
+        background: #000;
+    }
+    
+    .mouse-in:hover h2,
+    .mouse-in:hover p {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    
+    .mouse-in:hover img {
+        opacity: 0.4;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="mouse-in">
+        <a href="javascript:;">
+            <img src="./img/l-logo.jpg" alt="logo">
+            <h2 class="l-logo">logo</h2>
+            <p>源自世界的logo</p>
+        </a>
+    </div>
+</body>
+
+</html>

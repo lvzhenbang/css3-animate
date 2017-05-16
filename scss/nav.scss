@@ -1,0 +1,112 @@
+@import "compass/css3";
+@import "compass/utilities";
+@import 'normalize';
+
+$l-default-w: 1200px;
+$l-logo-w: 36px;
+$l-logo-h: 36px;
+$l-logo-mar: 6px 30px 0 20px;
+$l-logo-img-w: 36px;
+$l-logo-img-h: 36px;
+$l-logo-transition: 0.6s ease-in-out;
+$l-logo-transform: rotate(180deg) scale(1.5);
+$l-nav-list-width: 1100px;
+$l-nav-list-mar: 0 0 0 14px;
+$l-list-item-a-pad: 16px;
+$l-list-item-a-mar: 0 8px;
+$l-list-item-a-fontsize: 16px;
+$l-list-item-a-after-h: 4px;
+$l-list-item-after-bgcolor: #ff0000;
+$l-nav-list-item-a-transition: 0.2s ease-in-out;
+$l-bg-color: #393d49;
+$l-bg-font-color: #c2c2c2;
+$l-bg-list-item-after-bgcolor: #5fb878;
+
+.l-list {
+    @include clearfix;
+}
+
+.l-list-item {
+    float: left;
+    list-style: none;
+    & a {
+        position: relative;
+        display: block;
+        padding: $l-list-item-a-pad;
+        margin: $l-list-item-a-mar;
+        font-size: $l-list-item-a-fontsize;
+        line-height: 1.0;
+        text-decoration: none;
+    }
+    & a::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: $l-list-item-a-after-h;
+        background-color: $l-list-item-after-bgcolor;
+        content: '';
+        @include transform(scaleX(0));
+        @include transition($l-nav-list-item-a-transition)
+    }
+}
+
+
+/* nav */
+
+.l-nav-inside {
+    width: $l-default-w;
+    height: auto;
+    margin: auto;
+}
+
+.l-nav {
+    width: 100%;
+    min-width: $l-default-w;
+    background-color: $l-list-item-after-bgcolor;
+    & .l-logo {
+        display: block;
+        float: left;
+        width: $l-logo-w;
+        height: $l-logo-h;
+        margin: $l-logo-mar;
+        line-height: 1.0;
+        @include transition($l-logo-transition);
+        img {
+            width: $l-logo-img-w;
+            height: $l-logo-img-h;
+            @include border-radius(50%);
+        }
+    }
+    & .l-logo:hover {
+        @include transform($l-logo-transform);
+    }
+    & .l-list {
+        width: $l-nav-list-width;
+        height: auto;
+        padding: 0;
+        margin: $l-nav-list-mar;
+        overflow: hidden;
+        .l-list-item {
+            a:hover,
+            .l-list-active {
+                color: #fff;
+            }
+            a:hover::after,
+            .l-list-active::after {
+                @include transform(scaleX(1));
+            }
+        }
+    }
+}
+
+/* themes */
+.l-bg {
+    background-color: $l-bg-color;
+    & a {
+        color: $l-bg-font-color;
+    }
+    & .l-list-item a::after {
+        background-color: $l-bg-list-item-after-bgcolor;
+    }
+}

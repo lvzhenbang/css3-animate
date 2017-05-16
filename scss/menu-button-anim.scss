@@ -1,0 +1,53 @@
+@import "compass/css3";
+$menuOuterMargin: 30px;
+$menuHeight: 2px;
+$menuPadding: 8px;
+$menuBgcolor: #585247;
+$menuTransitionTime: 0.3s;
+
+.menu-outer {
+    position: relative;
+    display: inline-block;
+    margin: $menuOuterMargin;
+    width: 20px;
+    height: ($menuHeight*4 + $menuPadding*2);
+    cursor: pointer;
+    &:hover .menu {
+        background-color: transparent;
+    }
+    &:hover .menu::before {
+        transform: translateY($menuPadding) rotate(45deg);
+    }
+    &:hover .menu::after {
+        transform: translateY(-$menuPadding) rotate(-45deg);
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: $menuHeight;
+    padding: $menuPadding 0;
+    transform: translate(-50%, -50%);
+    background-clip: content-box;
+    background-color: $menuBgcolor;
+    &::after,
+    &::before {
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        content: '';
+        width: 100%;
+        height: $menuHeight;
+        background-color: $menuBgcolor;
+        transition: transform $menuTransitionTime, background-color $menuTransitionTime;
+    }
+    &::before {
+        top: 0;
+    }
+    &::after {
+        bottom: 0;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tranform3d</title>
+    <style>
+    .menu-outer {
+        position: relative;
+        display: inline-block;
+        margin: 30px;
+        width: 20px;
+        height: 24px;
+        cursor: pointer;
+    }
+    
+    .menu-outer:hover .menu {
+        background-color: transparent;
+    }
+    
+    .menu-outer:hover .menu::before {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-outer:hover .menu::after {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .menu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 2px;
+        padding: 8px 0;
+        transform: translate(-50%, -50%);
+        background-clip: content-box;
+        background-color: #585247;
+    }
+    
+    .menu::after,
+    .menu::before {
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: #585247;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+    
+    .menu::before {
+        top: 0;
+    }
+    
+    .menu::after {
+        bottom: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="menu-outer">
+        <span class="menu"></span>
+    </div>
+</body>
+
+</html>

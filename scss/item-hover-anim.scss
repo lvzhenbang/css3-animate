@@ -1,0 +1,59 @@
+@import 'compass/css3';
+
+$itemWidth: 160px;
+$itemHeight: 160px;
+$itemBOrderRadius: 10%;
+$itemPerspective: 500px;
+$itemMargin: 60px;
+$transitionTime: 0.3s;
+$transitionTime2: 0.1s;
+.mouse-in {
+    position: relative;
+    overflow: hidden;
+    width: $itemWidth;
+    height: $itemHeight;
+    margin: $itemMargin;
+    border-radius: $itemBOrderRadius;
+    perspective: $itemPerspective;
+    transform-origin: 0 0;
+    transition: background-color $transitionTime;
+    & img {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        transition: opacity $transitionTime;
+    }
+    & h2,
+    & p {
+        position: absolute;
+        padding: 0 16px;
+        color: #fff;
+        opacity: 0;
+        transform: translate3d(-$itemWidth, 0, -$itemWidth);
+    }
+    & h2 {
+        bottom: 50%;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 20px;
+        transition: transform $transitionTime cubic-bezier(0, 2.3, 0.8, 1), opacity $transitionTime;
+    }
+    & p {
+        top: 50%;
+        font-size: 14px;
+        transition: transform $transitionTime $transitionTime2 cubic-bezier(0, 2.3, 0.8, 1), opacity $transitionTime $transitionTime2;
+    }
+    &:hover {
+        background: #000;
+        & h2,
+        & p {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+        & img {
+            opacity: 0.4;
+        }
+    }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>等边三角形</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .l-box {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 500px;
+        height: 500px;
+        margin: 0 150px;
+        transform: scale(0.5) translateZ(0);
+        transition: transform 0.05s 0.3s;
+    }
+    
+    .regular-triangle {
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        overflow: hidden;
+        width: 129.90381px;
+        height: 150px;
+        transform-origin: 0 100%;
+        transform: skewY(-30deg);
+    }
+    
+    .l-list-item:nth-child(1) {
+        transform-origin: 0 0;
+    	perspective-origin: 30% 70%;
+        transform: rotate(0) skewY(-30deg) translate(10%, -10%);
+    }
+    
+    .l-list-item:nth-child(2) {
+        transform: rotate(60deg) skewY(-30deg) translate(10%, -10%);
+    }
+    
+    .l-list-item:nth-child(3) {
+        transform: rotate(120deg) skewY(-30deg) translate(10%, -10%);
+    }
+    
+    .l-list-item:nth-child(4) {
+        transform: rotate(180deg) skewY(-30deg) translate(10%, -10%);
+    }
+    
+    .l-list-item:nth-child(5) {
+        transform: rotate(240deg) skewY(-30deg) translate(10%, -10%);
+    }
+    
+    .l-list-item:nth-child(6) {
+        transform: rotate(300deg) skewY(-30deg) translate(10%, -10%);
+    }
+    
+    .clip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 86.60254%;
+        transform-origin: 0 0;
+        transform: skewY(30deg) rotate(30deg);
+    }
+    
+    .clip img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .clip span {
+        position: absolute;
+        top: 50%;
+        z-index: 33;
+        display: block;
+        font-size: 18px;
+        color: #fff;
+    }
+    
+    .l-box:hover {
+        transform: scale(1.0) translateZ(0);
+    	transition: transform 0.3s 0.2s cubic-bezier(0, 2.3, 0.8, 1);
+    }
+    </style>
+</head>
+
+<body>
+    <div class="l-box l-list">
+        <div class="l-list-item regular-triangle">
+            <div class="clip">
+                <a href="#">
+                    <img src="./img/bg.jpg" alt="bg">
+                    <span>1</span>
+                </a>
+            </div>
+        </div>
+        <div class="l-list-item regular-triangle">
+            <div class="clip">
+                <a href="#">
+                    <img src="./img/bg.jpg" alt="bg">
+                    <span>2</span>
+                </a>
+            </div>
+        </div>
+        <div class="l-list-item regular-triangle">
+            <div class="clip">
+                <a href="#">
+                    <img src="./img/bg.jpg" alt="bg">
+                    <span>3</span>
+                </a>
+            </div>
+        </div>
+        <div class="l-list-item regular-triangle">
+            <div class="clip">
+                <a href="#">
+                    <img src="./img/bg.jpg" alt="bg">
+                    <span>4</span>
+                </a>
+            </div>
+        </div>
+        <div class="l-list-item regular-triangle">
+            <div class="clip">
+                <a href="#">
+                    <img src="./img/bg.jpg" alt="bg">
+                    <span>5</span>
+                </a>
+            </div>
+        </div>
+        <div class="l-list-item regular-triangle">
+            <div class="clip">
+                <a href="#">
+                    <img src="./img/bg.jpg" alt="bg">
+                    <span>6</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

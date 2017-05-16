@@ -1,0 +1,41 @@
+@import "compass/css3";
+$l-box-height: 500;
+$l-box-width: 500;
+$l-box-margin: 150;
+$regular-tri-height: 150;
+$regular-tri-width: $regular-tri-height*0.8660254;
+
+.l-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: $l-box-width +px;
+    height: $l-box-height +px;
+    margin: $l-box-margin +px;
+}
+
+.regular-triangle {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: $regular-tri-width +px;
+    height: $regular-tri-height +px;
+    transform-origin: 0 100%;
+    transform: skewY(-30deg);
+}
+
+.clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $regular-tri-height +px;
+    height: $regular-tri-width;
+    transform-origin: 0 0;
+    transform: skewY(30deg) rotate(30deg);
+}
+
+.clip img {
+    width: $regular-tri-height +px;
+    height: $regular-tri-height +px;
+}

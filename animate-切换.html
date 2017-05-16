@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>仿领袖户外网站</title>
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <style type="text/css">
+    body{
+    	height: 1000px;
+    }
+    .animate-tab{
+		width: 100%;
+		height: auto;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+	}
+
+    #l-introduce-hide {
+        width: 174px;
+        position: absolute;
+        bottom: 15px;
+        left: -174px;
+        cursor: pointer;
+        z-index: 100;
+    }
+    
+    #l-introuceuce-close {
+        position: absolute;
+        bottom: 95px;
+        right: 10%;
+        cursor: pointer;
+        z-index: 100;
+    }
+    
+    #l-introduce-body {
+        width: 100%;
+        height: 180px;
+        background: url('./img/animate-tab/xiaotuanman2.png') no-repeat center center;
+        position: absolute;
+        bottom: 0px;
+        left: -0px;
+        z-index: 100;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="animate-tab">
+        <div id="l-introduce-hide">
+            <img src="./img/animate-tab/xiaotuanman1.png" alt="">
+        </div>
+        <a href="javascript:;" target="_blank">
+            <div id="l-introduce-body"></div>
+        </a>
+        <img id="l-introuceuce-close" src="./img/animate-tab/l-introuceuce-close.png" alt="">
+    </div>
+
+
+    <script src="./js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+    //
+    var width;
+    // 显示
+    $(document.body).on("click", "#l-introduce-hide", function() {
+    	width = $(window).width();
+        if (width < 1600) {
+            $(this).animate({
+                left: -174
+            }, 300);
+            setTimeout(function() {
+                $("#l-introduce-body").animate({
+                    left: 0
+                }, 700);
+                $("#l-introuceuce-close").animate({
+                    left: "90%"
+                }, 700);
+            }, 300);
+        } else {
+            $(this).animate({
+                left: -174
+            }, 300);
+            setTimeout(function() {
+                $("#l-introduce-body").animate({
+                    left: 0
+                }, 700);
+                $("#l-introuceuce-close").animate({
+                    left: "80%"
+                }, 700);
+            }, 300);
+        }
+    });
+    // 隐藏
+    $(document.body).on("click", "#l-introuceuce-close", function() {
+        if (width < 1600) {
+            $("#l-introduce-body").animate({
+                left: "-100%"
+            }, 700);
+            $("#l-introuceuce-close").animate({
+                left: -30
+            }, 600);
+            setTimeout(function() {
+                $("#l-introduce-hide").animate({
+                    left: -132
+                }, 300);
+            }, 700);
+        } else {
+            $("#l-introduce-body").animate({
+                left: "-100%"
+            }, 700);
+            $("#l-introuceuce-close").animate({
+                left: -30
+            }, 600);
+            setTimeout(function() {
+                $("#l-introduce-hide").animate({
+                    left: 0
+                }, 300);
+            }, 700);
+        }
+    });
+    </script>
+</body>
+
+</html>
