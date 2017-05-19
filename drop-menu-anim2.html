@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单——动画</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #0ac2d2;
+    }
+    
+    .l-demo {
+        display: inline-block;
+        width: 200px;
+        height: 400px;
+    }
+    
+    .l-list {
+        position: absolute;
+        top: 100%;
+        display: none;
+        width: 100%;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+    
+    .l-list-item {
+        list-style: none;
+        padding: 4px 8px;
+        border-top: 1px solid #cecece;
+    }
+    
+    .l-list-item a {
+        display: block;
+        padding: 4px 0;
+        font-size: 16px;
+        color: #000;
+        text-align: center;
+        text-decoration: none;
+        -webkit-transition: all 0.2s linear;
+    }
+    
+    .l-list-item a:hover {
+        color: #fff;
+        background-color: #cecece;
+    }
+    
+    .l-drop-menu {
+        position: relative;
+        width: 142px;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    .l-drop-menu>span {
+        position: relative;
+        display: block;
+        padding: 10px 20px;
+        text-align: center;
+        color: #58a;
+        background-color: #fff;
+        cursor: pointer;
+    }
+    
+    .l-drop-menu>span::after {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        content: '';
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        border-width: 8px;
+        border-style: solid dashed dashed;
+        border-color: #58a transparent transparent;
+        -webkit-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+    }
+    
+    .l-drop-menu.l-menu-active>span, .l-drop-menu.l-menu-in>span {
+        color: #fff;
+        background-color: #cecece;
+    }
+    
+    .l-drop-menu.l-menu-active>span::after, .l-drop-menu.l-menu-in>span::after {
+        top: 8px;
+        border-style: dashed dashed solid;
+        border-color: transparent transparent #58a;
+    }
+    
+    .l-menu-1.l-menu-active .l-list {
+        display: block;
+        -webki-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    
+    .l-menu-1 .l-list {
+        -webkit-transform: translate3d(0, 10px, 0);
+        transform: translate3d(0, 10px, 0);
+        -webkit-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+    }
+    
+    .l-menu-2.l-menu-out .l-list {
+        display: none;
+        -webkit-animation: l-animation-up 0.5s;
+        animation: l-animation-up 0.5s;
+    }
+    
+    .l-menu-2.l-menu-in .l-list {
+        display: block;
+        -webkit-animation: l-animation-down 0.5s;
+        animation: l-animation-down 0.5s;
+    }
+
+    @-webkit-keyframes l-animation-down {
+        from {
+            -webkit-transform: translate3d(0, 10px, 0);
+        }
+        to {
+            -webkit-transform: translate3d(0, 0, 0);
+        }
+    }
+    
+    @keyframes l-animation-down {
+        from {
+            transform: translate3d(0, 10px, 0);
+        }
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    
+    @-webkit-keyframes l-animation-up {
+        from {
+            -webkit-transform: translate3d(0, 0, 0);
+        }
+        to {
+            -webkit-transform: translate3d(0, 10px, 0);
+        }
+    }
+    
+    @keyframes l-animation-up {
+        from {
+            transform: translate3d(0, 0, 0);
+        }
+        to {
+            transform: translate3d(0, 10px, 0);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="l-demo">
+        <div class="l-drop-menu l-menu-1">
+            <span>下拉菜单</span>
+            <ul class="l-list">
+                <li class="l-list-item"><a href="http://www.baidu.com">百度一下</a></li>
+                <li class="l-list-item"><a href="http://www.bing.com">bing搜索</a></li>
+                <li class="l-list-item"><a href="http://www.iconfont.cn/">iconfont</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="l-demo">
+        <div class="l-drop-menu  l-menu-2">
+            <span>下拉菜单</span>
+            <ul class="l-list">
+                <li class="l-list-item"><a href="http://www.baidu.com">百度一下</a></li>
+                <li class="l-list-item"><a href="http://www.bing.com">bing搜索</a></li>
+                <li class="l-list-item"><a href="http://www.iconfont.cn/">iconfont</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    var menu1 = document.getElementsByClassName('l-menu-1')[0];
+    var menu2 = document.getElementsByClassName('l-menu-2')[0];
+
+    menu1.onclick = function() {
+        var className = menu1.className;
+        if (~className.indexOf('l-menu-active')) {
+            menu1.className = className.replace(' l-menu-active', '');
+        } else {
+            menu1.className += ' l-menu-active';
+        }
+    }
+
+    menu2.onclick = function() {
+        var className = menu2.className;
+        if (~className.indexOf('l-menu-in')) {
+            menu2.className = className.replace('l-menu-in', 'l-menu-out');
+        } else {
+            menu2.className += ' l-menu-in';
+        }
+    }
+    </script>
+</body>
+
+</html>
