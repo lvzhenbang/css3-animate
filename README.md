@@ -4,16 +4,9 @@
 
 introduction: 我是一个能用 `html + css` 实现页面效果，就绝对不用js的人。因为这样就意味着页面需要引入更多的内容，会让页面变得更加臃肿。进入HTML5的时代，浏览器给我们了更多的选择来做css动画，animation、transfrom和transition成了我追逐的方向。
 
-开源项目：
-
-[animate.css](https://github.com/daneden/animate.css)
-
-这是一个非常棒的项目，它将animation + transform用到了极致。
-
-
 过渡动画（transition）在html页面中也是比较常见，虽然animation也能实现过渡动画，但是大材小用了。
 
-### 做 css 动画应该考虑的问题
+### 做css动画应该考虑的问题
 
 1. 浏览器的支持
 
@@ -50,3 +43,17 @@ animation(动画) + transfrom(形变) + opacity + 其他
 语言： css + html
 
 [demo](https://codepen.io/lvzhenbang/pen/qMgNXq)
+
+> 太极八卦图 （animation）
+
+说明：使用position进行布局，使用box-shadow + transform(rotate)属性实现八卦的布局,做了一个旋转和闪烁的动画。
+
+语言： css + html + js(这里只是用控制animation的play & stop状态)
+
+
+### 优秀的开源项目：
+
+[animate.css](https://github.com/daneden/animate.css)
+
+这是一个非常棒的项目，它将animation + transform用到了极致。
+
