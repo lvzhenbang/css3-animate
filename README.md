@@ -34,9 +34,9 @@ animation(动画) + transfrom(形变) + opacity + 其他
 
 语言： css + html
 
-[demo](https://github.com/lvzhenbang/css3-animate/blob/master/toggle-slide.html)
+[demo](https://github.com/lvzhenbang/css3-animate/blob/master/demo/toggle-slide.html)
 
-> 仿 fullpage.js动画（aimation）
+> 仿 fullpage.js动画（animation）
 
 说明：使用flex进行布局（一个固定头部的导航，主体是一系列一屏大小的内容快），使用锚点和 `:target` 伪类相结合的小技术实现正平滚动。
 
@@ -50,6 +50,29 @@ animation(动画) + transfrom(形变) + opacity + 其他
 
 语言： css + html + js(这里只是用控制animation的play & stop状态)
 
+[demo](https://codepen.io/lvzhenbang/pen/ZMZGBJ)
+
+以每个卦边的中心为旋转中心，先平移，后旋转，这样比较好计算平移距离，布局八卦更方便。参考demo如下：
+
+[demo2](https://codepen.io/lvzhenbang/pen/ZMZGBJ)
+
+> spinner (annimation)
+
+说明：spinner动画很常用，也很实用，相较于传统的用一个gif，使用html+css实现的这种实现方式效果更好（渲染更快，减少了一次http请求）。
+
+[iconfont 的实现](https://github.com/lvzhenbang/css3-animate/blob/master/demo/spinner/iconfont.html)
+
+优化 [demo](https://github.com/lvzhenbang/css3-animate/blob/master/demo/spinner/spinner.html?#bounce)
+
+[小米官网 的实现](https://github.com/lvzhenbang/css3-animate/blob/master/demo/spinner/xiaomi.html)
+
+优化 [demo](https://github.com/lvzhenbang/css3-animate/blob/master/demo/spinner/spinner.html?#impulse)
+
+[ele me 的实现](https://github.com/lvzhenbang/css3-animate/blob/master/demo/spinner/eleme.html)
+
+[baidu 的实现](https://github.com/lvzhenbang/css3-animate/blob/master/demo/spinner/baidu.html)
+
+优化 [demo](file:///E:/workspace/me/css3-animate/demo/spinner/spinner.html?#swing)
 
 ### 优秀的开源项目：
 
@@ -57,3 +80,4 @@ animation(动画) + transfrom(形变) + opacity + 其他
 
 这是一个非常棒的项目，它将animation + transform用到了极致。
 
+[magic](https://github.com/miniMAC/magic)
