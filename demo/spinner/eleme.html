@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ele me</title>
+    <style>
+        .spinner {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner::after {
+            display: block;
+            content: '';
+            width: 18px;
+            height: 18px;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            border-top: 1px solid #2395ff;
+            border-radius: 100%;
+
+            -webkit-animation: spinner .5s infinite linear;
+                    animation: spinner .5s infinite linear;
+        }
+
+        @keyframes spinner {
+            from {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="spinner"></div>
+</body>
+</html>

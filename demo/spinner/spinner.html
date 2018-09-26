@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .spinner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .spinner>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* bounce */
+        .spinner .three-bounce>div, 
+        .spinner .three-bounce::before,
+        .spinner .three-bounce::after {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            background: #aeadba;
+
+            -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+                    animation: bouncedelay 1.4s infinite ease-in-out;
+            -webkit-animation-fill-mode: both;
+                    animation-fill-mode: both;
+        }
+
+        .spinner .three-bounce::before {
+            content: '';
+            -webkit-animation-delay: -.5s;
+            animation-delay: -.5s;
+        }
+
+        .spinner .three-bounce>div {
+            -webkit-animation-delay: -.25s;
+            animation-delay: -.25s;
+        }
+
+        .spinner .three-bounce::after {
+            content: '';
+        }
+
+        @keyframes bouncedelay {
+            0%, 100%, 80% {
+                -webkit-transform: scale(0);
+                        transform: scale(0);
+            }
+
+            40% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+            }
+        }
+
+        /* impulse */
+        .spinner .three-impulse>div, 
+        .spinner .three-impulse::before,
+        .spinner .three-impulse::after {
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            margin: 0 2px;
+            background: #ff6700;
+
+            -webkit-animation: impulse .75s infinite linear;
+                    animation: impulse .75s infinite linear;
+            -webkit-animation-fill-mode: both;
+                    animation-fill-mode: both;
+        }
+
+        .spinner .three-impulse::before {
+            content: '';
+            -webkit-animation-delay: -.25s;
+            animation-delay: -.25s;
+        }
+
+        .spinner .three-impulse>div {
+            -webkit-animation-delay: -.5s;
+            animation-delay: -.5s;
+        }
+
+        .spinner .three-impulse::after {
+            content: '';
+        }
+
+         @keyframes impulse {
+            0%, 100% {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 0.5);
+                opacity: .2;
+                filter: alpha(opacity=20)\9
+            }
+
+            50% {
+                -webkit-transform: scale(1, .5);
+                transform: scale(1, 1);
+                opacity: 1;
+                filter: alpha(opacity=100)\9
+            }
+        }
+
+        /* swing */
+        .three-swing>div {
+            position: relative;
+        }
+
+        .three-swing>div, .three-swing>div::before, .three-swing>div::after {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .three-swing>div::before {
+            content: '';
+            left: -28px;
+            background: red;
+            animation: swing2 3s cubic-bezier( 0.25, 0.50, 0.75, 0.50) infinite;
+        }
+
+        .three-swing>div {
+            background: green;
+            animation: swing 3s cubic-bezier( 0.25, 0.50, 0.75, 0.50) infinite;
+        }
+
+        .three-swing>div::after {
+            content: '';
+            left: 28px;
+            background: blue;
+            animation: swing3 3s cubic-bezier( 0.25, 0.50, 0.75, 0.50) infinite;
+        }
+
+         @keyframes swing {
+            0%, 100% {
+                background: red;
+            }
+            16.6% {
+                background: green;
+            }
+            33.3% {
+                background: blue;
+            }
+            48.9% {
+                background: red;
+            }
+            66.7% {
+                background: green;
+            }
+            83.33% {
+                background: blue;
+            }
+        }
+        @keyframes swing2 {
+            0%, 100% {
+                left: 0;
+                background: blue;
+            }
+            16.6% {
+                left: 28px;
+                background: red;
+            }
+            33.3% {
+                left: 0;
+                background: green;
+            }
+            48.9% {
+                left: -28px;
+                background: blue;
+            }
+            66.7% {
+                left: 0;
+                background: red;
+            }
+            83.33% {
+                left: 28px;
+                background: green;
+            }
+        }
+        @keyframes swing3 {
+            0%, 100% {
+                left: 0;
+                background: green;
+            }
+            16.6% {
+                left: -28px;
+                background: blue;
+            }
+            33.3% {
+                left: 0;
+                background: red;
+            }
+            48.9% {
+                left: 28px;
+                background: green;
+            }
+            66.7% {
+                left: 0x;
+                background: blue;
+            }
+            83.33% {
+                left: -28px;
+                background: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- bounce -->
+    <div id="bounce" class="spinner">
+        <div class="three-bounce">
+            <div></div>
+        </div>
+    </div>
+    <!-- inpulse -->
+    <div id="impulse" class="spinner">
+        <div class="three-impulse">
+            <div></div>
+        </div>
+    </div>
+    <!-- swing -->
+    <div id="swing" class="spinner">
+        <div class="three-swing">
+            <div></div>
+        </div>
+    </div>
+</body>
+
+</html>

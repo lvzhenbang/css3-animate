@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>border</title>
+    <style>
+        .html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .page {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .btn {
+            position: relative;
+            box-sizing: border-box;
+            border: 0;
+            margin: 12px;
+            padding: 12px 24px;
+            box-shadow: inset 0 0 0 2px #f45e61;
+            color: #f45e61;
+            font-size: inherit;
+            font-weight: 700;
+            vertical-align: middle;
+            background: none;
+            outline: none;
+            cursor: pointer;
+            transition: color 0.25s;
+        }
+
+        .btn-default::before, .btn-default::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            box-sizing: border-box;
+            border: 2px solid transparent;
+        }
+
+        .btn-default::before {
+            top: 0;
+            left: 0;
+        }
+
+        .btn-default::after {
+            right: 0;
+            bottom: 0;
+        }
+
+        .btn:hover {
+            color: greenyellow;
+        }
+
+        /* default */
+        .btn-default:hover::before, .btn-default:hover::after {
+            width: 100%;
+            height: 100%;
+            transition: color .25s ease-out;
+        }
+
+        .btn-default:hover::before {
+            border-top-color: black;
+            border-right-color: black;
+            transition:
+                width .25s ease-out,
+                height .25s ease-out .25s;
+        }
+
+        .btn-default:hover::after {
+            border-bottom-color: black;
+            border-left-color: black;
+            transition:
+                border-color 0s ease-out 0.5s,
+                width .25s ease-out 0.5s,
+                height .25s ease-out .75s;
+        }
+
+        /* center */
+        .btn-center::before, .btn-center::after {
+            position: absolute;
+            content: '';
+            box-sizing: border-box;
+            border: 2px solid transparent;
+        }
+
+        .btn-center::before {
+            vertical-align: middle;
+            width: 100%;
+            height: 0;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .btn-center::after {
+            text-align: center;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn-center:hover::before {
+            height: 100%;
+            border-left-color: black;
+            border-right-color: black;
+            transition: height 0.25s ease-out;
+        }
+
+        .btn-center:hover::after {
+            width: 100%;
+            border-top-color: black;
+            border-bottom-color: black;
+            transition: width 0.25s ease-out;
+        }
+
+        /* center2 scale */
+        .btn-center2::before, .btn-center2::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border-width: 2px;
+            border-style: solid;
+        }
+
+        .btn-center2::before {
+            border-top-color: transparent;
+            border-right-color: black;
+            border-bottom-color: transparent;
+            border-left-color: black;
+            
+            transform: scale(1, 0);
+        }
+
+        .btn-center2::after {
+            border-top-color: black;
+            border-right-color: transparent;
+            border-bottom-color: black;
+            border-left-color: transparent;
+            
+            transform: scale(0, 1);
+        }
+
+        .btn-center2:hover::before {
+            transform: scale(1, 1);
+            transition: transform 0.25s ease-out;
+        }
+
+        .btn-center2:hover::after {
+            transform: scale(1, 1);
+            transition: transform 0.25s ease-out;
+        }
+        
+        /* spinner */
+        .btn-circle {
+            position: relative;
+            width: 10em;
+            height: 10em;
+            border-radius: 100%;
+        }
+
+        .btn-circle::after, .btn-circle::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 100%;
+            box-sizing: border-box;
+            border-width: 2px;
+            border-style: solid;
+            border-color: transparent;
+            transition: all 0.5s;
+        }
+
+        .btn-circle:hover {
+            color: black;
+        }
+
+        .btn-circle:hover::after {
+            border-top-color: black;
+            border-right-color: black;
+            transform: rotate(180deg);
+            transition:
+                border-right-color 0.15s linear 0.1s,
+                border-bottom-color 0.15s linear 0.2s,
+                transform .4s linear 0s;
+        }
+
+        .btn-circle:hover::before {
+            border-top-color: black;
+            border-right-color: black;
+            transition:
+                border-top-color 0.15s linear,
+                border-right-color 0.15s ease-out 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <h1>按钮</h1>
+        <div class="box">
+            <button class="btn btn-default">hover</button>
+        </div>
+
+        <div class="box">
+            <button class="btn btn-default">default</button>
+            <p>从左上->右上->右下->左上的flash动画</p>
+            <p>布局：position</p>
+            <p>注意：避免同时显示::before 和 ::after两个伪元素</p>
+        </div>
+
+        <div class="box">
+            <button class="btn btn-center">center(translate)</button>
+            <p>从每条边的中心开始的flash动画</p>
+            <p>布局：position + translate</p>
+        </div>
+
+        <div class="box">
+            <button class="btn btn-center2">center（scale）</button>
+            <p>从每条边的中心开始的flash动画</p>
+            <p>布局：position + scale</p>
+        </div>
+
+        <div class="box">
+            <button class="btn btn-circle">spinner</button>
+            <p>spinner旋转</p>
+            <p>布局：position</p>
+            <p>注意：这里要考虑1/2圆效果后，是采用transform: rotate，还是使用与前1/2同样的动画形式。</p>
+        </div>
+    </div>
+</body>
+</html>

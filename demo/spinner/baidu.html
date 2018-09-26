@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <style>
+        .slowmsg {
+            z-index: 301;
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+            position: fixed;
+            _position: absolute;
+            top: 144px;
+            left: 212px;
+            height: 95px;
+            width: 360px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05)
+        }
+
+        .slowmsg .ball {
+            position: relative;
+            width: 40px;
+            margin: 41px auto 0;
+        }
+
+        .slowmsg .b {
+            position: absolute;
+            left: 20px;
+            width: 10px;
+            height: 10px;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slowmsg">
+        <div class="ball">
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </div>
+
+    <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+    <script>
+        $('.slowmsg').find(".b").each(function(t, e) {
+                var n = [[0, 40], [20, 20], [40, 0]][t]
+                  , o = ["rgb(55,137,250)", "rgb(99,99,99)", "rgb(235,67,70)"]
+                  , i = 0;
+                $(e).css({
+                    "background-color": o[t]
+                }),
+                function s() {
+                    return ($(e).animate({
+                        left: n[i % 2]
+                    }, {
+                        duration: 800,
+                        easing: "swing",
+                        progress: function(n, s) {
+                            s >= .5 && $(e).css({
+                                "background-color": o[(i + t) % 3]
+                            })
+                        },
+                        complete: function() {
+                            s()
+                        }
+                    }),
+                    void i++)
+                }()
+            })
+    </script>
+</body>
+
+</html>

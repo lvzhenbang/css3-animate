@@ -74,6 +74,12 @@ animation(动画) + transfrom(形变) + opacity + 其他
 
 优化 [demo](file:///E:/workspace/me/css3-animate/demo/spinner/spinner.html?#swing)
 
+> border (transition)
+
+现在常见的border动画效果，实际上使用的是伪元素，通过操作伪元素，从而形成一种好像border在动的效果。
+
+[button 动画](file:///E:/workspace/me/css3-animate/demo/border/button.html)
+
 ### 优秀的开源项目：
 
 [animate.css](https://github.com/daneden/animate.css)
