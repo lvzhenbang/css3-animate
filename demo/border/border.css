@@ -1,0 +1,221 @@
+@charset "utf-8";
+.border {
+    position: relative;
+    box-sizing: border-box;
+    border: 0;
+    margin: 12px;
+    padding: 12px 24px;
+    box-shadow: inset 0 0 0 2px #f45e61;
+    color: #f45e61;
+    font-size: inherit;
+    font-weight: 700;
+    vertical-align: middle;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.25s;
+}
+
+.border::after, .border::before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+.border:hover {
+    color: greenyellow;
+}
+
+/* loop */
+.border-loop::before, .border-loop::after {
+    width: 0;
+    height: 0;
+}
+
+.border-loop::before {
+    top: 0;
+    left: 0;
+}
+.border-loop::after {
+    right: 0;
+    bottom: 0;
+}
+
+.border-loop.reverse::before {
+    top: 0;
+    left: auto;
+    right: 0;
+}
+.border-loop.reverse::after {
+    right: auto;
+    left: 0;
+    bottom: 0;
+}
+
+.border-loop:hover::before, .border-loop:hover::after {
+    width: 100%;
+    height: 100%;
+    transition: color .25s ease-out;
+}
+
+.border-loop:hover::before {
+    border-top-color: black;
+    border-right-color: black;
+    transition:
+        width .2s ease-out,
+        height .2s ease-out .2s;
+}
+
+.border-loop.reverse:hover::before {
+    border-right-color: transparent;
+    border-left-color: black;
+}
+
+.border-loop:hover::after {
+    border-bottom-color: black;
+    border-left-color: black;
+    transition:
+        border-color 0s ease-out 0.4s,
+        width .2s ease-out 0.4s,
+        height .2s ease-out .6s;
+}
+
+.border-loop.reverse:hover::after {
+    border-left-color: transparent;
+    border-right-color: black;
+}
+
+/* center */
+.border-center::before {
+    vertical-align: middle;
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.border-center::after {
+    text-align: center;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.border-center:hover::before {
+    height: 100%;
+    border-left-color: black;
+    border-right-color: black;
+    transition: height 0.25s ease-out;
+}
+
+.border-center:hover::after {
+    width: 100%;
+    border-top-color: black;
+    border-bottom-color: black;
+    transition: width 0.25s ease-out;
+}
+
+/* center2 scale */
+.border-center2::before,
+.border-center2::after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.border-center2::before {
+    border-right-color: black;
+    border-left-color: black;
+    
+    transform: scale(1, 0);
+}
+
+.border-center2::after {
+    border-top-color: black;
+    border-bottom-color: black;
+    
+    transform: scale(0, 1);
+}
+
+.border-center2:hover::before {
+    transform: scale(1, 1);
+    transition: transform 0.25s ease-out;
+}
+
+.border-center2:hover::after {
+    transform: scale(1, 1);
+    transition: transform 0.25s ease-out;
+}
+
+/* border-bottom left/center */
+.border_bottom-left::before,
+.border_bottom-center::before {
+    bottom: 0;
+    left: 0;
+}
+
+.border_bottom-center::before {
+    width: 100%;
+    transform: scale(0, 1);
+}
+
+.border_bottom-center:hover::before {
+    border-bottom-color: black;
+    transform: scale(1, 1);
+    transition: transform 0.5s ease-out;
+}
+
+.border_bottom-left::before {
+    width: 0;
+}
+
+.border_bottom-left:hover::before {
+    width: 100%;
+    border-bottom-color: black;
+    transition: width 0.5s ease-out;
+}
+
+/* spinner */
+.border-circle {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    border-radius: 100%;
+}
+
+.border-circle::after, .border-circle::before {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    box-sizing: border-box;
+    transition: all 0.5s;
+}
+
+.border-circle:hover {
+    color: black;
+}
+
+.border-circle:hover::after {
+    border-top-color: black;
+    border-right-color: black;
+    transform: rotate(180deg);
+    transition:
+        border-right-color 0.15s linear 0.1s,
+        border-bottom-color 0.15s linear 0.2s,
+        transform .4s linear 0s;
+}
+
+.border-circle:hover::before {
+    border-top-color: black;
+    border-right-color: black;
+    transition:
+        border-top-color 0.15s linear,
+        border-right-color 0.15s ease-out 0.2s;
+}

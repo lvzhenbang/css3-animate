@@ -1,0 +1,136 @@
+@charset 'utf-8';
+nav {
+    position: relative;
+    width: 100%;
+    min-height: 60px;
+    background: rgba(0, 0, 0, 0.85);
+    _background: #000;
+    filter: alpha(opactity=85)\7;
+}
+
+nav .brand, nav ul, nav .menu {
+    float: left;
+}
+
+nav ul {
+    width: 700px;
+    /* margin: 0 auto; */
+}
+
+nav li {
+    float: left;
+}
+
+nav li>a {
+    display: block;
+    box-sizing: border-box;
+    height: 36px;
+    line-height: 36px;
+    margin: 12px;
+}
+
+.brand {
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.brand img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    display: none;
+    width: 100%;
+    min-height: 60px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+    overflow: hidden;
+}
+
+.menu>.toggle {
+    width: 38px;
+    height: 38px;
+    padding: 11px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.menu>.toggle>div {
+    position: relative;
+    width: 2em;
+    height: 0.1em;
+    margin: 1.15em auto;
+    background: black;
+}
+
+.menu>.toggle>div::before, .menu>.toggle>div::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2em;
+    height: 0.1em;
+    background: black;
+}
+
+.menu>.toggle>div::before {
+    top: 0.75em;
+}
+
+.menu>.toggle>div::after {
+    top: -0.75em;
+}
+
+.menu>.toggle:hover>div,
+.menu>.toggle:hover>div::before,
+.menu>.toggle:hover>div::after,
+.menu>.toggle.active>div,
+.menu>.toggle.active>div::before,
+.menu>.toggle.active>div::after {
+    background: #fff;
+}
+
+@media screen and (max-width:790px) {
+    nav .brand {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    nav .menu {
+        display: block;
+    }
+
+    nav .menu .toggle { 
+        position: absolute;
+        right: 0;
+    }
+
+    nav ul {
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        -webkit-transition: height .3s ease-in-out;
+                transition: height .3s ease-in-out;
+    }
+
+    nav li {
+        display: none;
+    }
+
+    nav ul.active {
+        display: block;
+        height: 300px;
+        -webkit-transition: height .3s ease-in-out;
+                transition: height .3s ease-in-out;
+    }
+
+    nav ul.active li {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}

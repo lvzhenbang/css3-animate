@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nav</title>
+    <link rel="stylesheet" href="./border.css">
+    <link rel="stylesheet" href="./nav.css">
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 14px;
+            color: black;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .clearfix::before, .clearfix::after {
+            content: '';
+            display: table;
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+        
+        /* nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        nav .border {
+            box-sizing: border-box;
+            padding: 0 30px;
+            box-shadow: none;
+            color: #fff;
+        }
+
+        nav a.border:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav class="clearfix">
+        <div class="menu">
+            <div class="toggle">
+                <div></div>
+            </div>
+        </div>
+        <div class="brand">
+            <a href="javascript:;">
+                <img src="https://avatars0.githubusercontent.com/u/19884132?s=460&v=4" alt="logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="" class="border border-center">home</a></li>
+            <li><a href="" class="border border_bottom-left">product</a></li>
+            <li><a href="" class="border border_bottom-center">contact</a></li>
+            <li><a href="" class="border border-loop">project</a></li>
+            <li><a href="" class="border border-loop reverse">about</a></li>
+        </ul>
+    </nav>
+    <main style="height: 1000px; margin-top: 60px;">this is main.</main>
+
+    <script>
+        var toggle = document.querySelector('nav .toggle')
+            oUl = document.querySelector('nav>ul')
+
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault()
+            // menu
+            if (this.className.includes('active')) {
+                this.className = this.className.replace(' active', '')
+            } else {
+                this.className = this.className + ' active'
+            }
+            // ul
+            if (oUl.className.includes('active')) {
+                oUl.className = oUl.className.replace(' active', '')
+            } else {
+                oUl.className = oUl.className + ' active'
+            }
+        })
+    </script>
+</body>
+</html>
