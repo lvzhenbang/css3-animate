@@ -10,7 +10,7 @@ animation-delay: 元素加载和动画序列开始之前这段时间(s/ms)
 animation-direction：设置一次动画后动画开始的方向，默认是每次循环后重置动画的方向(alternate/normal)
 animation-iteration-count：设置动画执行的次数
 animation-paly-state：可以设置动画最终留在屏幕上的状态为动画开始之前的状态，也可以动画最后的一个状态（running/paused）
-animation-fill-mode: (forwards/backwards/both/none)
+animation-fill-mode: (forwards/backwards/both/none) 可以设置动画开始和结束时，怎样显示。
 
 ```
 
@@ -21,14 +21,6 @@ animation-fill-mode: (forwards/backwards/both/none)
 [High Performance Animations](https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/)
 
 [CSS Animation Tricks: State Jumping, Negative Delays, Animating Origin, and More](https://css-tricks.com/css-animation-tricks/)
-
-#### 视频
-
-### 案例
-
-#### 文档
-
-
 
 #### 视频
 
