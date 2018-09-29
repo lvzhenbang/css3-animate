@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>input</title>
+    <style>
+        input.c-input[type=radio], input.c-input[type=checkbox] {
+            position: relative;
+        }
+        
+        input.c-input::before, input.c-input::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+        }
+        /* radio */
+        input.c-input[type=radio]:before {
+            background-color: #dcdfe6;
+            box-shadow: 0 0 0 1px #dcdfe6;
+            transition: all 0.25s ease-in-out;
+        }
+        
+        input.c-input[type=radio]:after {
+            background-color: #fff;
+            transform: scale(0, 0);
+            transition: all 0.25s cubic-bezier(.75, .01, .48, 2);
+        }
+
+        input.c-input[type=radio]:checked:after {
+            transform: scale(0.5, 0.5);
+        }
+                
+        input.c-input[type=radio]:checked:before {
+            background-color: #409eff;
+            box-shadow: 0 0 0 1px #409eff;
+        }
+
+        /* checkbox */
+        input.c-input.default[type=checkbox]:before {
+            width: 100%;
+            /* background-color: #dcdfe6;
+            box-shadow: 0 0 0 1px #dcdfe6; */
+            background-color: #fff;
+            box-shadow: 0 0 0 1px #409eff;
+
+            border-radius: 5%;
+            transition: all 0.25s ease-in-out;
+        }
+
+        input.c-input.default[type=checkbox]:after {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 2px solid transparent;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            border-radius: 0;
+            transform-origin: center center;
+            
+            transform: translate(0, -10%) rotate(45deg) scale(0, 0);
+            transition: all 0.25s cubic-bezier(.75, .01, .48, 2);
+        }
+
+        input.c-input.default[type=checkbox]:checked:before {
+            background-color: #409eff;
+            box-shadow: 0 0 0 1px #409eff
+        }
+            
+        input.c-input.default[type=checkbox]:checked:after {
+            transform: translate(0, -10%) rotate(45deg) scale(.4, .6);
+        }
+        
+        /* switch */
+        input.c-input.switch[type=checkbox]:before {
+            width: 200%;
+            background-color: #dcdfe6;
+            box-shadow: 0 0 0 1px #dcdfe6;
+            transform: translate(-25%, 0);
+            transition: all 0.25s ease-in-out;
+        }
+
+        input.c-input.switch[type=checkbox]:after {
+            width: 80%;
+            height: 80%;
+            margin-top: 10%;
+            margin-left: 10%;
+            background-color: #fff;
+            transform: translate(60%, 0);
+            transition: all 0.25s cubic-bezier(.75, .01, .48, 2);
+        }
+
+        input.c-input.switch[type=checkbox]:checked:before {
+            background-color: #409eff;
+            box-shadow: 0 0 0 1px #409eff
+        }
+            
+        input.c-input.switch[type=checkbox]:checked:after {
+            transform: translate(-60%, 0)
+        }
+        
+        /* basic */
+        input.c-input[type=radio], input.c-input[type=checkbox] {
+            width: 30px;
+            height: 30px;
+            margin: 36px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>单选按钮（radio）</h2>
+    <div class="item">
+        <input class="c-input" type="radio" name="radio" checked>
+        <input class="c-input" type="radio" name="radio">
+        <input class="c-input" type="radio" name="radio">
+    </div>
+
+    <h2>复选框（checkbox）</h2>
+    <div class="item">
+        <input class="c-input default" type="checkbox" name="checkbox" checked>
+        <input class="c-input default" type="checkbox" name="checkbox">
+        <input class="c-input default" type="checkbox" name="checkbox">
+    </div>
+
+    <h2>开关（switch）</h2>
+    <div class="item">
+        <input class="c-input switch" type="checkbox" name="checkbox" checked>
+        <input class="c-input switch" type="checkbox" name="checkbox">
+        <input class="c-input switch" type="checkbox" name="checkbox">
+    </div>
+</body>
+
+</html>
