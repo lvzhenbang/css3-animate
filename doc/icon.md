@@ -7,13 +7,18 @@
 	
 	
 ## 实现原理：
-#### 雪碧图	它的基本原理是将网站中的所有的图标图片整合到一张图片中，该图片使用css 中的width,height,background属性和background-position属性来渲染网站中请求页面中的图标。
-#### Icon font	 它的基本原理自定义一种字体，将不同的字配置作为icon图案，然后通过css嵌入其中使用。 
-#### DataURI scheme	Data URI scheme是在RFC2397中定义的，将一些小的数据，直接嵌入到网页中，从而不用再从外部文件载入
+
+雪碧图它的基本原理是将网站中的所有的图标图片整合到一张图片中，该图片使用css 中的width,height,background属性和background-position属性来渲染网站中请求页面中的图标。
+
+Icon font 它的基本原理自定义一种字体，将不同的字配置作为icon图案，然后通过css嵌入其中使用。 
+ 
+DataURI scheme	Data URI scheme是在RFC2397中定义的，将一些小的数据，直接嵌入到网页中，从而不用再从外部文件载入
 
 
 ## 优势&劣势
+
 ### 雪碧图
+
 > 优势
 
  		1. 加快网页加载速度
@@ -34,11 +39,13 @@
 	2. 移动页面夜间模式下
 
 
-### ICON font
+### ICON FONT
+
 > 优势 
 
     1. 很好的解决了响应式设计中图形无损自适应的问题，可以通过font-size和color属性来控制icon的大小和颜色
     2. 体积小，可以无限拉伸
+
 > 劣势
 
     1. 样式单一、颜色单一
@@ -48,46 +55,55 @@
 	5. 10p以下的字体chrome浏览器显示12px
 
 ### Data URI scheme
->优势
+
+> 优势
 
     使用一个data uri scheme
->劣势
+> 劣势
 
     浏览器使用的过程中不会缓存该图片
 
 ## 参考资料：
+
 > Sprite
 
-    http://www.cnblogs.com/hustskyking/archive/2015/08/17/iconfont-opt.html
-    http://www.cnblogs.com/demix/archive/2009/11/28/1612715.html
-    https://segmentfault.com/q/1010000000407231
-    http://ntx.me/2015/05/21/IconFont/
-    https://think2011.net/2017/03/31/css-sprite/
+```
+http://www.cnblogs.com/hustskyking/archive/2015/08/17/iconfont-opt.html
+http://www.cnblogs.com/demix/archive/2009/11/28/1612715.html
+https://segmentfault.com/q/1010000000407231
+http://ntx.me/2015/05/21/IconFont/
+https://think2011.net/2017/03/31/css-sprite/
+```
 
 > Iconfont
 
-    http://www.cnblogs.com/hustskyking/archive/2015/08/17/iconfont-opt.html
-    http://www.cnblogs.com/demix/archive/2009/11/28/1612715.html
-    https://segmentfault.com/q/1010000000407231
-    http://ntx.me/2015/05/21/IconFont/
+```
+http://www.cnblogs.com/hustskyking/archive/2015/08/17/iconfont-opt.html
+http://www.cnblogs.com/demix/archive/2009/11/28/1612715.html
+https://segmentfault.com/q/1010000000407231
+http://ntx.me/2015/05/21/IconFont/
+```
 
->Data URI scheme
+> Data URI scheme
 
-	 Data URI中，data表示取得数据的协定名称，image/png 是数据类型名称，base64 是数据的编码方法，逗号后面就是这个image/png文件base64编码后的数据。
-     Data URI scheme支持的类型有：
-        data: ,文本数据
-        data:text/plain,文本数据
-        data:text/html,HTML代码
-        data:text/html;base64,base64编码的HTML代码
-        data:text/css,CSS代码
-        data:text/css;base64,base64编码的CSS代码
-        data:text/javascript,Javascript代码
-        data:text/javascript;base64,base64编码的Javascript代码
-        data:image/gif;base64,base64编码的gif图片数据
-        data:image/png;base64,base64编码的png图片数据
-        data:image/jpeg;base64,base64编码的jpeg图片数据
-        data:image/x-icon;base64,base64编码的icon图片数据
+```
+Data URI中，data表示取得数据的协定名称，image/png 是数据类型名称，base64 是数据的编码方法，逗号后面就是这个image/png文件base64编码后的数据。
+Data URI scheme支持的类型有：
+    data: ,文本数据
+    data:text/plain,文本数据
+    data:text/html,HTML代码
+    data:text/html;base64,base64编码的HTML代码
+    data:text/css,CSS代码
+    data:text/css;base64,base64编码的CSS代码
+    data:text/javascript,Javascript代码
+    data:text/javascript;base64,base64编码的Javascript代码
+    data:image/gif;base64,base64编码的gif图片数据
+    data:image/png;base64,base64编码的png图片数据
+    data:image/jpeg;base64,base64编码的jpeg图片数据
+    data:image/x-icon;base64,base64编码的icon图片数据
+```
 
-      
-      http://blog.csdn.net/c_mihoo/article/details/12774719
-      https://isux.tencent.com/understand-data-uri-performance.html
+**参考文档**
+
+http://blog.csdn.net/c_mihoo/article/details/12774719
+https://isux.tencent.com/understand-data-uri-performance.html
