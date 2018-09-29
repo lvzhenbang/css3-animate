@@ -53,3 +53,9 @@ animation(动画) + transfrom(形变) + opacity + 其他
 这是一个非常棒的项目，它将animation + transform用到了极致。
 
 [magic](https://github.com/miniMAC/magic)
+
+[hamburgers](https://github.com/jonsuh/hamburgers)
+
+[SpinKit](https://github.com/tobiasahlin/SpinKit)
+
+[css-loaders](https://github.com/lukehaas/css-loaders)
