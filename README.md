@@ -42,6 +42,10 @@ animation(动画) + transfrom(形变) + opacity + 其他
 
 [doc](https://github.com/lvzhenbang/css3-animate/blob/master/doc/input.md)
 
+> 3d (transition/animation)
+
+[doc](https://github.com/lvzhenbang/css3-animate/blob/master/doc/css-shape-3d.md)
+
 > 其他
 
 [doc](https://github.com/lvzhenbang/css3-animate/blob/master/doc/other.md)

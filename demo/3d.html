@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3d</title>
+    <style>
+    .box {
+            overflow: hidden;
+        }
+        #prism {
+            position: relative;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform-origin: 50% 50% -360px;
+
+            animation: prism 8s linear infinite;
+        }
+        #prism>img {
+            width: 300px;
+            position: absolute;
+            left: 50%;
+            transform-origin: 50% 50% -360px;
+        }
+        #prism>img:nth-child(1) {
+            transform: translateX(-50%) rotateY(0deg);
+        }
+        #prism>img:nth-child(2) {
+            transform: translateX(-50%) rotateY(-45deg);
+        }
+        #prism>img:nth-child(3) {
+            transform: translateX(-50%) rotateY(-90deg);
+        }
+        #prism>img:nth-child(4) {
+            transform: translateX(-50%) rotateY(-135deg);
+        }
+        #prism>img:nth-child(5) {
+            transform: translateX(-50%) rotateY(-180deg);
+        }
+        #prism>img:nth-child(6) {
+            transform: translateX(-50%) rotateY(-225deg);
+        }
+        #prism>img:nth-child(7) {
+            transform: translateX(-50%) rotateY(-270deg);
+        }
+        #prism>img:nth-child(8) {
+            transform: translateX(-50%) rotateY(-315deg);
+        }
+
+        @keyframes prism {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="prism">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/wanaka-tree.jpg" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/still-lake.jpg" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pink-milford-sound.jpg" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/paradise.jpg" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/morekai.jpg" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/milky-blue-lagoon.jpg" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/lake-tekapo.jpg" alt="">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/milford-sound.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

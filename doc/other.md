@@ -18,7 +18,7 @@
 
 > 太极八卦图 （animation）
 
-说明：使用position进行布局，使用box-shadow + transform(rotate)属性实现八卦的布局,做了一个旋转和闪烁的动画。
+说明：使用position进行布局，使用box-shadow + transform(rotate)属性实现八卦的布局，做了一个旋转和闪烁的动画。
 
 语言： css + html + js(这里只是用控制animation的play & stop状态)
 
@@ -27,3 +27,11 @@
 以每个卦边的中心为旋转中心，先平移，后旋转，这样比较好计算平移距离，布局八卦更方便。参考demo如下：
 
 [demo2](https://codepen.io/lvzhenbang/pen/ZMZGBJ)
+
+> 太极八卦图 （transition）
+
+说明：使用position进行布局，使用box-shadow + transform属性实现label浮动效果。
+
+语言： css + html （伪类&伪元素）
+
+[demo](https://codepen.io/lvzhenbang/pen/yRowVE)
