@@ -42,4 +42,4 @@
 
 语言：css + html (伪元素&伪类)
 
-[demo](https://github.com/lvzhenbang/css3-animate/blob/master/demo/ohter/arrow.html)
+[demo]https://jsfiddle.net/sanlv/g68ej24x/)
