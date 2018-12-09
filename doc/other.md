@@ -35,3 +35,11 @@
 语言： css + html （伪类&伪元素）
 
 [demo](https://codepen.io/lvzhenbang/pen/yRowVE)
+
+> 箭头动画（仿apple官网）
+
+说明：使用transition做动画过渡，使用transform做元素的形状和位置的改变。
+
+语言：css + html (伪元素&伪类)
+
+[demo](https://github.com/lvzhenbang/css3-animate/blob/master/demo/ohter/arrow.html)
