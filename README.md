@@ -48,6 +48,7 @@ animation(动画) + transfrom(形变) + opacity + 其他
 
 > 导航动画
 
+[doc](https://github.com/lvzhenbang/css3-animate/blob/master/doc/nav.md)
 
 > 其他
 

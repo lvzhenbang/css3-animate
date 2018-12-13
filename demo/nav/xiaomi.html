@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小米</title>
+  <style>
+  .sj_nav {
+    width: 100%;
+    height: 30px;
+    padding: 6px 0;
+    text-align: center;
+    background: burlywood;
+    border-bottom: 1px solid #e0e0e0;
+    -webkit-box-shadow: 0px 5px 5px rgba(0,0,0,0.07);
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.07);
+  }
+  .sj_nav_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    width: 100%;
+    margin-top: -65px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+  }
+
+  .sj_nav_show {
+    min-width: 100%;
+    margin-top: 0;
+  }
+  </style>
+</head>
+<body style="height: 2000px">
+  <div class="sj_nav">this is nav</div>
+  <div class="sj_nav sj_nav_fixed">this is nav</div>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
+  <script>
+    function navShow() {
+      if (!$('.sj_nav_fixed').hasClass('sj_nav_show') && window.pageYOffset >= 65) {
+        $('.sj_nav_fixed').addClass('sj_nav_show');
+      }
+      if ($('.sj_nav_fixed').hasClass('sj_nav_show') && window.pageYOffset < 65) {
+        $('.sj_nav_fixed').removeClass('sj_nav_show');
+      }
+    }
+
+    $(window).on('scroll', function (e) {
+      navShow();
+    })
+  </script>
+</body>
+</html>
